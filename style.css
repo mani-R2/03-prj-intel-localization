@@ -84,6 +84,11 @@ section {
   scroll-behavior: smooth;
   /* Add perspective so hovered cards feel 3D */
   perspective: 1200px;
+  /* Enable horizontal scroll snapping */
+  scroll-snap-type: x mandatory;
+  /* Provide comfortable snap padding so cards center nicely */
+  scroll-padding-inline: 20px;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Create the horizontal line (timeline) */
@@ -124,6 +129,9 @@ section div {
   /* Optimize for animation */
   will-change: transform, box-shadow;
   transform-origin: center top;
+  /* Make each card a snap point and prefer stopping on it */
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 /* Alternate cards above and below timeline */
@@ -270,6 +278,8 @@ section div:hover p {
     /* Stack cards vertically on small screens */
     flex-wrap: wrap;
     overflow-x: visible;
+    /* Disable horizontal snapping on mobile vertical layout */
+    scroll-snap-type: none;
   }
 
   section::before {
