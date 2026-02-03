@@ -73,11 +73,15 @@ section {
   margin: 60px auto;
   padding: 60px 20px;
   position: relative;
+  /* Use flexbox for responsive layout */
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  /* Allow horizontal scrolling on large screens */
+  overflow-x: auto;
   gap: 20px;
-  justify-content: center;
   align-items: flex-start;
+  /* Smooth scrolling experience */
+  scroll-behavior: smooth;
 }
 
 /* Create the horizontal line (timeline) */
@@ -94,7 +98,9 @@ section::before {
 
 /* Style each card/div */
 section div {
-  width: calc(25% - 20px);
+  /* Fixed width for horizontal scroll on large screens */
+  min-width: calc(25% - 20px);
+  flex-shrink: 0;
   padding: 20px;
   background-color: white;
   border-radius: 8px;
@@ -170,6 +176,79 @@ section div h3 {
 section div p {
   line-height: 1.5;
   font-size: 0.9em;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - TABLETS & MEDIUM SCREENS
+   ============================================ */
+
+@media (max-width: 1024px) {
+  section div {
+    /* Show 3 cards per row on tablets */
+    min-width: calc(33.33% - 20px);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - SMALL SCREENS & MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+  section {
+    /* Stack cards vertically on small screens */
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  section::before {
+    /* Change timeline to vertical on small screens */
+    top: 0;
+    left: 50%;
+    right: auto;
+    width: 4px;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  section div {
+    /* Full width cards on mobile */
+    min-width: 90%;
+    width: 90%;
+    flex-shrink: 1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+
+  /* Remove top/bottom margins for vertical layout */
+  section div:nth-child(odd) {
+    margin-bottom: 40px;
+  }
+
+  section div:nth-child(even) {
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+
+  /* Adjust dots for vertical timeline */
+  section div::after {
+    bottom: auto;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  section div:nth-child(even)::after {
+    top: -30px;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  header p {
+    font-size: 1em;
+  }
 }
 
 /* ============================================
