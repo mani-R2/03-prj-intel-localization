@@ -1,1 +1,184 @@
-/* Add your CSS here */
+/* ============================================
+   GENERAL STYLES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* ============================================
+   HEADER / HERO SECTION (INTEL BRANDED)
+   ============================================ */
+
+header {
+  /* Intel blue gradient background for professional look */
+  background: linear-gradient(135deg, #0071c5 0%, #003366 100%);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Container for header content */
+header div {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Intel Logo - Prominent and properly sized */
+header img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: brightness(1.1);
+}
+
+/* Main Headline - Bold and high contrast */
+header h1 {
+  font-size: 2.8em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Subheading - Clear and readable with good contrast */
+header p {
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #f0f0f0;
+  font-weight: 300;
+}
+
+/* ============================================
+   TIMELINE CARDS SECTION
+   ============================================ */
+
+section {
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 60px 20px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Create the horizontal line (timeline) */
+section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  right: 20px;
+  height: 4px;
+  background-color: #003366;
+  z-index: 0;
+}
+
+/* Style each card/div */
+section div {
+  width: calc(25% - 20px);
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Alternate cards above and below timeline */
+section div:nth-child(odd) {
+  margin-bottom: 80px;
+}
+
+section div:nth-child(even) {
+  margin-top: 80px;
+}
+
+/* Create dots on the timeline */
+section div::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 4px solid #003366;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -60px;
+}
+
+/* Adjust dot position for even cards (above timeline) */
+section div:nth-child(even)::after {
+  bottom: auto;
+  top: -60px;
+}
+
+/* Hover effect - cards grow and change color */
+section div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 51, 102, 0.3);
+  background-color: #e8f0f7;
+}
+
+/* Style images in cards */
+section div img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* Style headings in cards */
+section div h2 {
+  font-size: 1.8em;
+  color: #003366;
+  margin-bottom: 8px;
+}
+
+section div h3 {
+  font-size: 1.3em;
+  color: #0066cc;
+  margin-bottom: 12px;
+}
+
+section div p {
+  line-height: 1.5;
+  font-size: 0.9em;
+}
+
+/* ============================================
+   FOOTER MESSAGE
+   ============================================ */
+
+body > p {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 0.9em;
+}
