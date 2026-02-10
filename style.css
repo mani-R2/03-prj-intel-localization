@@ -343,3 +343,42 @@ body > p {
   color: #666;
   font-size: 0.9em;
 }
+
+/* ============================================
+   BOOTSTRAP SECTION OVERRIDES
+   ============================================ */
+
+.bootstrap-grid-section {
+  display: block !important;
+  overflow: visible !important;
+  perspective: none !important;
+  max-width: 1140px !important;
+}
+
+.bootstrap-grid-section::before, 
+.bootstrap-grid-section::after {
+  content: none !important;
+  display: none !important;
+}
+
+.bootstrap-grid-section .col-md-4 > div {
+  min-width: 100% !important;
+  margin: 0 !important;    
+  min-height: auto !important;
+  cursor: default;
+  background: #fff;
+  border: 1px solid #dee2e6 !important;
+}
+
+.bootstrap-grid-section h2.h4 {
+  color: #0071c5;
+  font-weight: 700;
+  border-inline-start: 5px solid #00c7fd; 
+  padding-inline-start: 15px;
+  margin-bottom: 1rem;
+}
+
+.bootstrap-grid-section .col-md-4 > div::before,
+.bootstrap-grid-section .col-md-4 > div::after {
+  display: none !important;
+}
